@@ -1,6 +1,7 @@
 import { loadHome } from "./home";
 import { loadAbout } from "./About";
-import { loadMenu } from "./Menu";  
+import { loadMenu } from "./Menu";
+import { loadBooking } from "./Booking";
 import './styles.css';
 
 function setActiveTab(buttonId) {
@@ -19,7 +20,9 @@ loadHome();
     document.querySelector('#menu').addEventListener('click', () => {
     loadMenu();
     setActiveTab('menu');});
-
+    document.querySelector('#booking').addEventListener('click', () => {
+    loadBooking();
+    setActiveTab('booking');});
 }
 startWebsite();
 
