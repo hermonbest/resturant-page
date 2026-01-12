@@ -136,7 +136,7 @@ export function loadBooking() {
         console.error('Booking flow container not found on the page.');
         return;
     }
-
+   window.scrollTo(0, 0);
     bookingContainer.innerHTML = '';
     const bookingFlow = document.createElement('div');
     bookingFlow.classList.add('booking-flow');

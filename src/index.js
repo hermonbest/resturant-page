@@ -17,10 +17,13 @@ function createHeader() {
     buttons.forEach(buttonInfo => {
         const button = document.createElement('button');
         button.id = buttonInfo.id;
-        button.textContent = buttonInfo.text;
+        button.innerHTML = `<span>${buttonInfo.text}</span>`;
         button.addEventListener('click', () => {
             loadPage(buttonInfo.loader);
             setActiveTab(button.id);
+            if (button.id !== 'booking') {
+                window.scrollTo(0, 0);
+            }
         });
         nav.appendChild(button);
     });
@@ -28,7 +31,7 @@ function createHeader() {
     // Booking is handled separately on the home page, not as a full page load
     const bookingButton = document.createElement('button');
     bookingButton.id = 'booking';
-    bookingButton.textContent = 'Booking';
+    bookingButton.innerHTML = '<span>Booking</span>';
     bookingButton.addEventListener('click', () => {
         loadPage(loadHome, () => {
             setActiveTab('home'); // Keep home active, booking is on home
@@ -72,7 +75,9 @@ function loadPage(loader, callback) {
         if(callback) callback();
         content.classList.remove('fade-out');
     }, 300); // Match CSS transition speed
+
 }
+
 
 function startWebsite() {
     createHeader();

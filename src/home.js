@@ -1,7 +1,6 @@
 import heroImage from './assets/hero.jpg';
 import gallery1 from './assets/gallery1.jpg';
 import gallery2 from './assets/gallery2.jpg';
-import gallery3 from './assets/gallery3.jpg';
 
 function createHeroSection() {
     const hero = document.createElement('section');
@@ -49,7 +48,7 @@ function createGallerySection() {
     const galleryGrid = document.createElement('div');
     galleryGrid.classList.add('gallery-grid');
 
-    const images = [gallery1, gallery2, gallery3];
+    const images = [gallery1, gallery2];
     images.forEach(src => {
         const img = new Image();
         img.src = src;
@@ -61,6 +60,7 @@ function createGallerySection() {
 }
 
 export function loadHome(callback) {
+    document.body.classList.remove('menu-bg', 'about-bg');
     const contentDiv = document.getElementById('content');
     contentDiv.innerHTML = '';
 
